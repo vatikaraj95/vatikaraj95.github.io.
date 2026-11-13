@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vatika Raj | Business Analytics Portfolio</title>
+<meta name="description" content="Portfolio of Vatika Raj: business analytics projects in product delivery, AI governance and compliance, and customer analytics. Master of Business Analytics, La Trobe University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3A5F;
+    --navy-dark: #152a45;
+    --ink: #1d2433;
+    --muted: #5a6475;
+    --line: #e3e7ee;
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --accent: #2f6fb3;
+    --tag: #eaf1f9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .brand { font-weight: 700; color: var(--navy); letter-spacing: 0.3px; }
+  nav ul { list-style: none; display: flex; gap: 24px; }
+  nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--navy); text-decoration: none; }
+
+  /* Hero */
+  header.hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; padding: 80px 0 72px; }
+  .hero h1 { font-family: 'Source Serif 4', Georgia, serif; font-size: 48px; line-height: 1.1; margin-bottom: 12px; }
+  .hero .role { font-size: 18px; color: #c9d6e8; margin-bottom: 24px; font-weight: 500; }
+  .hero p.lead { max-width: 680px; font-size: 17px; color: #e6edf6; margin-bottom: 32px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-block; padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+  .btn.primary { background: #fff; color: var(--navy); }
+  .btn.ghost { border: 1.5px solid rgba(255,255,255,0.6); color: #fff; }
+  .btn:hover { text-decoration: none; opacity: 0.9; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .stat { border-left: 3px solid rgba(255,255,255,0.35); padding-left: 14px; }
+  .stat b { display: block; font-size: 21px; line-height: 1.3; }
+  .stat span { font-size: 13px; color: #c9d6e8; }
+
+  /* Sections */
+  section { padding: 64px 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  h2 { font-family: 'Source Serif 4', Georgia, serif; font-size: 32px; color: var(--navy); margin-bottom: 12px; }
+  .intro { color: var(--muted); max-width: 680px; margin-bottom: 36px; }
+
+  /* Project cards */
+  .project { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(20,40,70,0.04); scroll-margin-top: 80px; }
+  .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+  .project h3 { font-size: 22px; color: var(--ink); line-height: 1.3; }
+  .badge { font-size: 12px; font-weight: 600; color: var(--navy); background: var(--tag); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .project .sub { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; margin-bottom: 24px; }
+  .block h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 6px; }
+  .block p, .block li { font-size: 15px; color: #343c4c; }
+  .block ul { padding-left: 18px; }
+  .block li { margin-bottom: 4px; }
+  .full { grid-column: 1 / -1; }
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .metric { background: var(--bg); border-radius: 8px; padding: 14px 16px; }
+  .metric b { display: block; font-size: 20px; color: var(--navy); }
+  .metric span { font-size: 13px; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .tag { font-size: 13px; background: var(--tag); color: var(--navy); padding: 4px 10px; border-radius: 4px; }
+  .evidence { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .evidence .label { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 4px; }
+  .evidence a { font-size: 14px; font-weight: 600; border: 1px solid var(--line); padding: 7px 14px; border-radius: 6px; background: #fff; }
+  .evidence a:hover { border-color: var(--accent); text-decoration: none; }
+  .evidence .note { font-size: 14px; color: var(--muted); font-style: italic; }
+
+  /* About / experience */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+  .about-grid p { color: #343c4c; margin-bottom: 14px; }
+  .timeline { list-style: none; }
+  .timeline li { padding: 0 0 18px 18px; border-left: 2px solid var(--line); position: relative; }
+  .timeline li::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--navy); }
+  .timeline b { display: block; font-size: 15px; }
+  .timeline span { font-size: 14px; color: var(--muted); }
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
+  .skillbox { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+  .skillbox h4 { color: var(--navy); margin-bottom: 8px; font-size: 16px; }
+  .skillbox p { font-size: 14px; color: #343c4c; }
+
+  .caps { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cap { border: 1px solid var(--line); border-radius: 10px; padding: 24px; background: var(--bg); }
+  .cap h4 { color: var(--navy); font-size: 17px; margin-bottom: 4px; }
+  .cap .from { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+  .cap p { font-size: 14.5px; color: #343c4c; margin-bottom: 10px; }
+  .cap .proof { font-size: 13.5px; color: var(--muted); margin-bottom: 0; border-top: 1px dashed var(--line); padding-top: 10px; }
+  .next { margin-top: 24px; font-size: 14.5px; color: var(--muted); }
+  @media (max-width: 760px) { .caps { grid-template-columns: 1fr; } }
+
+  .about-text { max-width: 760px; }
+  .about-text p { color: #343c4c; margin-bottom: 14px; font-size: 16.5px; }
+  .toolset .tag { font-size: 15px; padding: 8px 14px; }
+  /* Contact */
+  .contact { background: var(--navy); color: #fff; text-align: center; padding: 56px 0; }
+  .contact h2 { color: #fff; margin-bottom: 20px; }
+  .contact p { color: #c9d6e8; margin-bottom: 0; }
+  .contact .btns { justify-content: center; }
+  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 20px 0; }
+
+  @media (max-width: 760px) {
+    nav ul { display: none; }
+    .hero h1 { font-size: 36px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .grid, .about-grid, .skills { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; }
+    .project { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Vatika Raj</span>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#masters">Master's</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Vatika Raj</h1>
+    <div class="role">Business &amp; Data Analysis &nbsp;|&nbsp; Process Automation &nbsp;|&nbsp; Risk, Product &amp; Projects</div>
+    <p class="lead">I solve business problems with data. With six years of industry experience at global firms and a Master of Business Analytics from La Trobe University, I start from the problem, test assumptions with evidence, design a practical solution with the right controls built in, and give a clear recommendation people can act on.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/vatika-raj-445440171" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="mailto:vatika.raj95@gmail.com">Email me</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>6 years</b><span>Industry experience at global firms</span></div>
+      <div class="stat"><b>Master of Business Analytics</b><span>La Trobe University, Melbourne</span></div>
+      <div class="stat"><b>Business analytics projects</b><span>Product, governance &amp; customer analytics</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2>Business Analytics Projects</h2>
+    <p class="intro">Projects I delivered while completing my Master of Business Analytics, putting what I learnt to work on real business problems. In each one I started from the problem, designed a solution and backed my recommendation with evidence.</p>
+
+    <!-- Project 1 -->
+    <article class="project" id="social-connect">
+      <div class="project-head">
+        <h3>LTU Social Connect: Student Networking App</h3>
+        <span class="badge">Product &amp; Delivery</span>
+      </div>
+      <p class="sub">Product owner and builder &nbsp;&middot;&nbsp; 2026</p>
+
+      <div class="metrics">
+        <div class="metric"><b>Live MVP</b><span>Deployed and publicly accessible</span></div>
+        <div class="metric"><b>Full stack</b><span>Front end, API, database &amp; login</span></div>
+        <div class="metric"><b>AI-assisted</b><span>Structured, documented prompt approach</span></div>
+      </div>
+
+      <div class="grid">
+        <div class="block">
+          <h4>The problem</h4>
+          <p>Many La Trobe students find it hard to meet peers and build networks outside class, especially when they are new to the university or to Australia.</p>
+        </div>
+        <div class="block">
+          <h4>My role</h4>
+          <p>I owned the product end to end: scoping the MVP, defining the user journeys, building the app, deploying it and presenting it.</p>
+        </div>
+        <div class="block full">
+          <h4>What I did</h4>
+          <ul>
+            <li>Defined the MVP scope and the core user journeys for a student networking platform.</li>
+            <li>Built a working app with a React front end, a Python FastAPI back end, and a Supabase (PostgreSQL) database with user authentication.</li>
+            <li>Deployed it live through GitHub and Vercel so anyone can open and use it.</li>
+            <li>Led AI-assisted delivery with Cline, documenting the prompts in a structured framework (S.C.A.F.F.) so the process is repeatable and auditable.</li>
+          </ul>
+        </div>
+        <div class="block full">
+          <h4>Outcome</h4>
+          <p>A working, deployed MVP that shows I can take an idea through scoping, delivery and launch. These are the same steps a product or BA role follows from requirement to release.</p>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">MVP scoping</span><span class="tag">User journeys</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Databricks</span><span class="tag">Google Colab</span><span class="tag">VS Code (Cline)</span><span class="tag">Vercel</span>
+      </div>
+
+      <div class="evidence">
+        <span class="label">Evidence</span>
+        <a href="https://ltu-eight.vercel.app/" target="_blank" rel="noopener">Open live app &#8599;</a>
+        <a href="https://github.com/vatikaraj95/Backend" target="_blank" rel="noopener">GitHub repository &#8599;</a>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project" id="greendesk">
+      <div class="project-head">
+        <h3>GreenDesk: AI and Cloud-Enabled ESG Reporting</h3>
+        <span class="badge">Governance &amp; Compliance</span>
+      </div>
+      <p class="sub">RPA / AI consultant &nbsp;&middot;&nbsp; 2026</p>
+
+      <div class="metrics">
+        <div class="metric"><b>&lt; 1 minute</b><span>For staff to report an incident</span></div>
+        <div class="metric"><b>0/7 &rarr; 7/7</b><span>LLM category accuracy after prompt redesign</span></div>
+        <div class="metric"><b>Pilot, not launch</b><span>Evidence-based go/no-go recommendation</span></div>
+      </div>
+
+      <div class="grid">
+        <div class="block">
+          <h4>The problem</h4>
+          <p>A large organisation wanted to use AI and cloud automation to improve its ESG reporting, but it needed the solution to be safe, private, auditable and trustworthy.</p>
+        </div>
+        <div class="block">
+          <h4>My role</h4>
+          <p>As consultant, I designed, built and tested the solution and gave the recommendation on whether it was ready to use.</p>
+        </div>
+        <div class="block full">
+          <h4>What I did</h4>
+          <ul>
+            <li><b>Chatbot:</b> built a Dialogflow CX assistant that captures an incident's type, location and risk in three questions, routes it to an urgent or standard pathway, and always offers a human handover. I tested four journeys and found and fixed a routing defect.</li>
+            <li><b>Governance by design:</b> applied the Privacy Act 1988 (APPs) and Australia's AI Ethics Principles through data minimisation, a collection notice, an audit trail, human escalation for sensitive matters and WCAG 2.2 accessibility.</li>
+            <li><b>AI evaluation:</b> compared LLM message triage with keyword and zero-shot baselines. The redesigned prompt was the only method to flag a critical safety case, but it also over-escalated and invented details.</li>
+            <li><b>Cloud risk:</b> analysed the 2024 Snowflake customer breaches (about 165 organisations) using the shared-responsibility model, and set out preventive controls: MFA, network allow lists, credential rotation and monitoring.</li>
+          </ul>
+        </div>
+        <div class="block full">
+          <h4>Outcome and recommendation</h4>
+          <p>The AI was not ready for production, so I recommended a human-in-the-loop pilot on Microsoft Azure, with safety overrides and human review of critical cases, and designed the Azure reference architecture. This is the kind of risk-based judgement that compliance and governance teams make.</p>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">AI governance</span><span class="tag">Privacy Act / APPs</span><span class="tag">Risk controls</span><span class="tag">Dialogflow CX</span><span class="tag">LLM evaluation</span><span class="tag">Microsoft Azure</span><span class="tag">ESG</span>
+      </div>
+
+      <div class="evidence">
+        <span class="label">Evidence</span>
+        <a href="https://github.com/vatikaraj95/ESG-Cloud" target="_blank" rel="noopener">GitHub repository &#8599;</a>
+        <span class="note">Demo video and full report available on request</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<section id="masters" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow">Master of Business Analytics &middot; La Trobe University</div>
+    <h2>What my Master's has equipped me to do</h2>
+    <p class="intro">The knowledge and skills I've built through the subjects I've completed so far.</p>
+    <div class="caps">
+      <div class="cap">
+        <h4>Predict and explain customer behaviour</h4>
+        <p class="from">Predictive Analytics</p>
+        <p>Segment customers, find which products sell together, and design churn, forecasting and bundling models. I check the data for leakage, bias and privacy risk first, then measure the impact of decisions with control groups.</p>
+      </div>
+      <div class="cap">
+        <h4>Govern AI responsibly</h4>
+        <p class="from">Responsible AI for Sustainability &middot; AI for Business</p>
+        <p>Design AI solutions around privacy, transparency, human oversight and accountability, and turn a business need into requirements for an AI assistant.</p>
+      </div>
+      <div class="cap">
+        <h4>Assess and manage risk</h4>
+        <p class="from">Cybersecurity for Business</p>
+        <p>Run structured risk assessments, map threats to controls, plan incident response and build the business case for a control investment using return on security investment (ROSI).</p>
+      </div>
+      <div class="cap">
+        <h4>Apply cloud and automation to business problems</h4>
+        <p class="from">Cloud Platforms and Analytics</p>
+        <p>Design cloud and AI workflows, evaluate LLMs against simpler baselines before trusting them, apply the shared-responsibility model, and recommend pilot or production based on evidence.</p>
+      </div>
+      <div class="cap">
+        <h4>Take a product from idea to launch</h4>
+        <p class="from">Vibe Coding for Startups</p>
+        <p>Scope an MVP, map user journeys, and deliver and deploy a working product quickly using AI-assisted development with a documented, repeatable prompt process.</p>
+      </div>
+      <div class="cap">
+        <h4>Plan projects and lead people</h4>
+        <p class="from">Managing IT Projects &middot; Organisational Behaviour and Management Practice</p>
+        <p>Plan IT projects, analyse requirements, write test and acceptance scenarios that trace back to policy, and understand the team dynamics, motivation and leadership that help projects succeed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About me</div>
+    <h2>Business problems in, practical solutions out</h2>
+    <div class="about-text">
+      <p>Alongside my studies, I work in customer service roles in Melbourne. They have given me first-hand insight into what Australian customers expect: friendly, straightforward service, honest advice and a quick fix when something goes wrong. I bring that customer view to every problem I analyse and every solution I design.</p>
+      <p>As I complete my Master's, my aim is to bring together everything I have built so far: process automation, data literacy, a sound understanding of risk, and a habit of moving from business problem to workable solution. I want to deliver high-quality work while continuing to learn how different businesses operate and what drives them.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:#fff; border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="eyebrow">Capabilities</div>
+    <h2>Analytics &amp; tools</h2>
+    <div class="tags toolset">
+      <span class="tag">Advanced Excel</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">SAS Enterprise Miner</span><span class="tag">R</span><span class="tag">Python</span><span class="tag">Dialogflow CX</span><span class="tag">Microsoft Azure</span><span class="tag">Databricks</span><span class="tag">Google Colab</span><span class="tag">VS Code (Cline)</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's connect</h2>
+    <div class="btns">
+      <a class="btn primary" href="mailto:vatika.raj95@gmail.com">vatika.raj95@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/vatika-raj-445440171" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 Vatika Raj &middot; Melbourne, Australia</footer>
+
+</body>
+</html>
